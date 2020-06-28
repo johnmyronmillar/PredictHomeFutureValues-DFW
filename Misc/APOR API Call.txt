@@ -1,0 +1,29 @@
+# Example from stackoverflow:
+
+>>> pd.read_csv('data.csv', sep='|', index_col=False, 
+                 names=['protocol', 'server', 'type', 'value'])
+Out[7]:
+     protocol server                 type                        value
+0    https    clients4.google.com    application/octet-stream    2296
+1    https    clients4.google.com    text/html; charset=utf-8    0
+2    https    clients4.google.com    application/octet-stream    2291
+
+
+# cfpb:
+
+apor_fixed_url = https://s3.amazonaws.com/cfpb-hmda-public/prod/apor/YieldTableFixed.txt
+
+
+apor_adj_url = https://s3.amazonaws.com/cfpb-hmda-public/prod/apor/YieldTableAdjustable.txt
+
+
+apor_fixed_response = requests.get(apor_fixed_url)
+
+
+apor_adj_response = requests.get(apor_adj_url)
+
+
+apor_fixed_df = pd.read_csv('apor_fixed_response', sep='|', index_col=False, names=['Term of Loan in Years', '1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50']
+
+
+apor_adj_df = pd.read_csv('apor_adj_response', sep='|', index_col=False, names=['Term of Loan in Years', '1', '2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50']
